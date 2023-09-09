@@ -1,0 +1,293 @@
+
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>R3CD: Scene Graph to Image Generation with Relation-aware Compositional Contrastive Control Diffusion</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <base href="/"> -->
+    <meta property="og:image" content="https://weixi-feng.github.io/structurediffusion/img/method.jpg">
+    <meta property="og:image:type" content="image/jpg">
+    <meta property="og:image:width" content="682">
+    <meta property="og:image:height" content="682">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://weixi-feng.github.io/r3cd/"/>
+    <meta property="og:title" content="structured-diffusion-guidance" />
+    <meta property="og:description" content="Project page for Structured Diffusion Guidance for Compositional Text-to-Image Synthesis." />
+
+    <!--TWITTER-->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="structured-diffusion-guidance" />
+    <meta name="twitter:description" content="Project page for R3CD: Scene Graph to Image Generation with Relation-aware Compositional Contrastive Control Diffusion." />
+    <meta name="twitter:image" content="https://weixi-feng.github.io/structurediffusion/img/.png" />
+
+
+    <!-- <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+    <!-- <link rel="icon" type="image/png" href="img/seal_icon.png"> -->
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+    <div class="container" id="main">
+        <div class="row">
+            <h2 class="col-md-12 text-center">
+                <b>R3CD: Scene Graph to Image Generation with Relation-aware Compositional
+                    Contrastive Control Diffusion</br> </b>
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+                        <a href="https://github.com/Brandon-Liu-Jx">Jinxiu Liu</a><sup>1</sup>
+                    </li>
+                    <li>
+                        <a href="drliuqi.github.io">Qi Liu</a><sup>1</sup>
+                    </li>
+                </ul>
+                <sup>1</sup>South China University of Technology
+            </div>
+        </div>
+
+
+        <div class="row">
+                <div class="col-md-4 col-md-offset-4 text-center">
+                    <ul class="nav nav-pills nav-justified">
+                        <li>
+                            <a href=" ">
+                            <image src="img/paper.png" height="60px">
+                                <h4><strong>Paper [Attached to the email]</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                            <image src="img/github.png" height="60px">
+                                <h4><strong>Code [Coming Soon]</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                            <image src="img/huggingface.png" height="60px">
+                                <h4><strong>Demo [Coming Soon]</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#results">
+                            <image src="img/result_pointer.png" height="60px"></image>
+                                <h4><strong>Results</strong></h4>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Abstract
+                </h3>
+                <center><image src="img/issue.png" class="img-responsive" alt="overview"><br>
+                <p class="text-justify">
+                    Image generation tasks have achieved remarkable performance using large-scale diffusion models. 
+                    However, these models are limited to capturing the abstract relations (viz., interactions excluding positional relations) among multiple entities of complex scene graphs. 
+                    Two main problems exist: (1) fail to depict more concise and accurate interactions via abstract relations; (2) fail to generate complete entities. 
+                    To address that, we propose a novel Relation-aware Compositional Contrastive Control Diffusion method, dubbed as R3CD, that leverages large-scale diffusion models to learn abstract interactions from scene graphs. Herein, a scene graph transformer based on node and edge encoding is first designed to perceive both local and global information from input scene graphs, whose embeddings are initialized by a T5 model. Then a joint contrastive loss based on attention maps and denoising steps is developed to control the diffusion model to understand and further generate images, whose spatial structures and interaction features are consistent with a priori relation. Extensive experiments are conducted on two datasets: Visual Genome and COCO-Stuff, and demonstrate that the proposal outperforms existing models both in quantitative and qualitative metrics to generate more realistic and diverse images according to different scene graph specifications.    </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3 id="results">
+                    Results
+                </h3>
+
+                <hr />
+                <center><h4> Visualization results of relation features. </h4>
+                <center><image src="img/relationfeatures.png" class="img-responsive" alt="overview"></image>
+                    The attention maps show the similarity between image pixels and scene graph nodes. Our method assigns higher attention weights to the regions that correspond to the key interaction features of the relations, such as the handshakes, hugs, and riding poses. Our method also generates more realistic and detailed images that reflect the abstract relations, while SGDiff fails to capture the interaction features and generates isolated entities.
+                <hr />
+                
+                <h4>
+                    Visual examples of graph-to-image generation in complex scene. 
+                </h4>
+                <center><image src="img/wholescene.png" class="img-responsive" alt="overview"></image>
+                    The figure shows the attention maps and generated images from scene graphs with multiple entities and relations. Our method can capture the semantic and spatial information of the scene graphs better than SGDiff, such as the relative positions, orientations, colors, and shapes of different entities. Our method also generates more realistic and detailed images that respect the scene graph specifications, while SGDiff fails to generate complete entities and produces blurry images.
+                <hr />
+                </div>
+        </div>
+
+
+        <hr />
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Method 
+                </h3>
+                <h4>
+                    The whole pipeline of R3CD
+                </h4>
+                <image src="img/r3cdpipeline.png" class="img-responsive" alt="overview"></image>
+                <p class="text-justify">
+                    The whole pipeline of R3CD, where node and edge embeddings are encoded by the proposed SGFormer and then are
+fed to compositional generation model under the guidance of relation-aware contrastive control loss. The figure illustrates how R3CD generates an image from a scene graph in two stages. First, the input scene graph is encoded by SGFormer, which uses a T5 model to initialize the node and edge embeddings, and then applies a graph attention layer and a graph update layer to refine them with both local and global information. Second, the scene graph embeddings are fed to the compositional generation module, which uses a denoise UNet to generate and fuse each component of the image. The relation-aware contrastive control loss is designed to align the abstract relation features in the scene graph with the attention maps and diffusion steps in the image generation process. The attention map contrastive loss minimizes the cosine similarity between attention maps that correspond to different relations, and maximizes the similarity between those that correspond to the same relations. The diffusion steps contrastive loss minimizes the energy function between noise distributions that correspond to different relations, and maximizes the energy function between those that correspond to the same relations. The final output is a realistic and diverse image that respects the scene graph specifications.
+
+ <!-- (See <a href="#related">prompt-to-prompt</a>) -->
+                </p>
+                <h4>
+                    The architecture of SGFormer
+                </h4>
+                <center><image src="img/SGFormer.png" class="img-responsive" alt="overview">
+                <p class="text-justify">
+                    As shown in figure above, <strong>SGFormer</strong> comprises two components:
+(1) The graph attention layer to compute attention scores between node and edge features, and aggregate information
+from neighboring nodes and edges; (2) The graph update
+layer, to update the node and edge features based on the aggregated information                
+</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Conclusion
+                </h3>
+                <p>In this paper, we have proposed R3CD, a novel framework
+                    for image generation from scene graphs that leverages large-scale diffusion models and contrastive control mechanisms,
+                    which capture the interactions between entity regions and
+                    abstract relation in scene graph. Our method consists of
+                    two main components: (1) SGFormer, a transformer-based
+                    node and edge encoding scheme that captures both local and
+                    global information from scene graphs; (2) Relation-aware
+                    Diffusion contrastive control: a contrastive learning module
+                    that can align the abstract relation features and the image
+                    features across different levels of abstraction, and enhance
+                    the model to generate images that reflect the abstract relations. We have conducted extensive experiments on two
+                    datasets: Visual Genome and COCO-Stuff, and demonstrated that our method outperforms existing methods in
+                    terms of both quantitative and qualitative metrics. We have
+                    also shown that our method can generate more realistic and
+                    diverse images that respect the scene graph specifications,
+                    especially for abstract relations that are hard to express with
+                    entity stitching.
+                    </p>
+                <!-- <image src="img/a_brown_bird_and_a_blue_bear.png" alt="overview" height="200px"></image> -->
+            </div>
+        </div>
+
+        <!-- <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Analysis
+                </h3>
+                <p>More to come. Please refer to the paper (appendix) for now.</p>
+                <image src="img/a_brown_bird_and_a_blue_bear.png" alt="overview" height="200px"></image>
+            </div>
+        </div> -->
+
+
+        <!-- <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Results
+                </h3>
+                <p class="text-justify">
+                    We train NeRF and mip-NeRF on a dataset with images at four different resolutions. Normal NeRF (left) is not capable of learning to represent the same scene at multiple levels of detail, with blurring in close-up shots and aliasing in low resolution views, while mip-NeRF (right) both preserves sharp details in close-ups and correctly renders the zoomed-out images.
+                </p>                
+                <br>
+                <video id="v0" width="100%" autoplay loop muted controls>
+                  <source src="img/ship_sbs_path1.mp4" type="video/mp4" />
+                </video>
+                <video id="v0" width="100%" autoplay loop muted controls>
+                  <source src="img/chair_sbs_path1.mp4" type="video/mp4" />
+                </video>
+                <video id="v0" width="100%" autoplay loop muted controls>
+                  <source src="img/lego_sbs_path1.mp4" type="video/mp4" />
+                </video>
+                <video id="v0" width="100%" autoplay loop muted controls>
+                  <source src="img/mic_sbs_path1.mp4" type="video/mp4" />
+                </video>
+                <br><br>
+                <p class="text-justify">
+                    We can also manipulate the integrated positional encoding by using a larger or smaller radius than the true pixel footprint, exposing the continuous level of detail learned within a single network:
+                </p>     
+                <video id="v0" width="100%" autoplay loop muted controls>
+                  <source src="img/lego_radii_manip_slider_200p.mp4" type="video/mp4" />
+                </video>
+            </div>
+        </div> -->
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3 id="related">
+                    Related Works
+                </h3>
+                <p class="text-justify">
+                    <a href="https://github.com/CompVis/stable-diffusion/tree/69ae4b35e0a0f6ee1af8bb9a5d0016ccb27e36dc">Stable Diffusion</a> and <a href="https://arxiv.org/abs/2112.10752">Latent Diffusion Models</a>
+                </p>
+                <p class="text-justify">
+                    <a href="https://arxiv.org/abs/2206.01714">Compositional Visual Generation with Composable Diffusion Models</a>
+                </p>
+                <p class="text-justify">
+                    <a href="https://arxiv.org/abs/2211.11138">Diffusion-Based Scene Graph to Image Generation with Masked Contrastive Pre-Training</a>
+                </p>
+                <p>
+                    <a href="https://arxiv.org/abs/2212.05032
+                    ">Training-Free Structured Diffusion Guidance for Compositional Text-to-Image Synthesis.</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- <div class="container" style="max-width: 768px;">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Citation</h3>
+                    <code>
+                        @article{feng2022training,<br>
+                        &nbsp; title={Training-Free Structured Diffusion Guidance for Compositional Text-to-Image Synthesis},<br>
+                        &nbsp; author={Feng, Weixi and He, Xuehai and Fu, Tsu-Jui and Jampani, Varun and Akula, Arjun and Narayana, Pradyumna and Basu, Sugato and Wang, Xin Eric and Wang, William Yang},<br>
+                        &nbsp; journal={arXiv preprint arXiv:2212.05032},<br>
+                        &nbsp; year={2022}<br>
+                    }
+                    </code>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Acknowledgements
+                </h3>
+                <p class="text-justify">
+                This project is funded by an unrestricted gift from Google.
+                <br>
+                The website template was borrowed from <a href="http://jonbarron.info/">Jon Barron</a>.
+                </p>
+            </div>
+        </div> -->
+    </div>
+</body>
+</html>
