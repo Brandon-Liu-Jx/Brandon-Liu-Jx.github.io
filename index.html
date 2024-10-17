@@ -331,7 +331,7 @@
             </a>
             <br><br>
             <a href="https://yeluosuiyou.github.io/" style="color: black;">Zilyu Ye *</a>, &nbsp;
-            <strong style="color: #0F52BA;">Jinxiu Liu *</strong>, &nbsp;
+            <strong style="color: #0F52BA;">Jinxiu Liu * &Dagger </strong>, &nbsp;
 		<a href="" style="color: black;">Ruotian Peng *</a>  &nbsp;  
             <a href="" style="color: black;">Jinjin Cao</a>  &nbsp;
             <a href="" style="color: black;">Zhiyang Chen</a>  &nbsp;
@@ -340,7 +340,7 @@
             <a href="" style="color: black;">Xiaoqian Shen</a>  &nbsp;
             <a href="" style="color: black;">Mohamed Elhoseiny</a>  &nbsp;
             <a href="https://drliuqi.github.io/" style="color: black;">Qi Liu</a>, &nbsp;
-            <a href="" style="color: black;">Guo-Jun Qi</a>  &nbsp; &nbsp (* contribute equally)
+            <a href="" style="color: black;">Guo-Jun Qi</a>  &nbsp; &nbsp (* contribute equally, &Dagger Project Lead)
             <!-- <a href="https://tsujuifu.github.io/" style="color: black;">Tsu-Jui Fu</a>, &nbsp;
             <a href="https://varunjampani.github.io/" style="color: black;">Varun Jampani</a>, &nbsp;
             <a href="https://www.arjunakula.com/" style="color: black;">Arjun Akula</a>, &nbsp;
@@ -350,15 +350,21 @@
             <a href="https://sites.cs.ucsb.edu/~william/" style="color: black;">William Yang Wang</a> -->
             <br>
             <br>
-            In this paper, we present OpenStory, a large-scale dataset tailored for training subject-focused story visualization models to
-             generate coherent and contextually relevant visual narratives. Addressing the challenges of maintaining subject continuityacross frames
-              and capturing compelling narratives, We propose an innovative pipeline that automates the extraction ofkeyframes from open-domain videos.
-               It ingeniously employsvision-language models to generate descriptive captions,which are then refined by a large language model to
-                ensurenarrative flow and coherence. Furthermore, advanced sub-ject masking techniques are applied to isolate and segmentthe primary subjects. 
-                Derived from diverse video sources,including YouTube and existing datasets, OpenStory offersa comprehensive open-domain resource, surpassing priordatasets confined to 
-                specific scenarios. With automatedcaptioning instead of manual annotation, high-resolutionimagery optimized for subject count per frame, and exten-sive frame sequences
-                 ensuring consistent subjects for tem-poral modeling, OpenStory establishes itself as an invalu-able benchmark. It facilitates advancements in subject-focused story visualization,
-                  enabling the training of modelscapable of comprehending and generating intricate multi-modal narratives from extensive visual and textual inputs.
+            Recent image generation models excel at creating high-quality images from brief captions. 
+		  However, they fail to maintain consistency of multiple instances across images when encountering lengthy contexts. 
+		  This inconsistency is largely due to in existing training datasets the absence of granular instance feature labeling in existing training datasets. 
+		  To tackle these issues, we introduce Openstory++, a large-scale dataset combining additional instance-level annotations with both images and text. 
+		  Furthermore, we develop a training methodology that emphasizes entity-centric image-text generation, ensuring that the models learn to effectively interweave visual and textual information.
+		  Specifically, Openstory++ streamlines the process of keyframe extraction from open-domain videos, 
+		  employing vision-language models to generate captions that are then polished by a large language model for narrative continuity. 
+		  It surpasses previous datasets by offering a more expansive open-domain resource, which incorporates automated captioning, 
+		  high-resolution imagery tailored for instance count, and extensive frame sequences for temporal consistency. 
+		  Additionally, we present Cohere-Bench, a pioneering benchmark framework for evaluating the image generation tasks when long multimodal context is provided, 
+		  including the ability to keep the background, style, instances in the given context coherent.
+		  Compared to existing benchmarks, our work fills critical gaps in multi-modal generation, 
+		  propelling the development of models that can adeptly generate and interpret complex narratives in open-domain environments. 
+		  Experiments conducted within Cohere-Bench confirm the superiority of Openstory++ in nurturing high-quality visual storytelling models, 
+		  enhancing their ability to address open-domain generation tasks.
                         
             <br><br>
 		 
@@ -382,13 +388,13 @@
             </a>
             <br><br>
             <a href="https://yeluosuiyou.github.io/" style="color: black;">Zilyu Ye *</a>, &nbsp;
-            <strong style="color: #0F52BA;">Jinxiu Liu *</strong>, &nbsp;
+            <strong style="color: #0F52BA;">Jinxiu Liu * &Dagger </strong>, &nbsp;
             <a href="" style="color: black;">Jinjin Cao</a>  &nbsp;
             <a href="" style="color: black;">Zhiyang Chen</a>  &nbsp;
             <a href="" style="color: black;">Ziwei Xuan</a>  &nbsp;
             <a href="" style="color: black;">Mingyuan Zhou</a>  &nbsp;
             <a href="https://drliuqi.github.io/" style="color: black;">Qi Liu</a>, &nbsp;
-            <a href="" style="color: black;">Guo-Jun Qi</a>  &nbsp; &nbsp (* contribute equally)
+            <a href="" style="color: black;">Guo-Jun Qi</a>  &nbsp; &nbsp (* contribute equally, &Dagger Project Lead)
             <!-- <a href="https://tsujuifu.github.io/" style="color: black;">Tsu-Jui Fu</a>, &nbsp;
             <a href="https://varunjampani.github.io/" style="color: black;">Varun Jampani</a>, &nbsp;
             <a href="https://www.arjunakula.com/" style="color: black;">Arjun Akula</a>, &nbsp;
