@@ -261,24 +261,15 @@
             <a href="https://sites.cs.ucsb.edu/~william/" style="color: black;">William Yang Wang</a> -->
             <br>
             <br>
-           Generative multi-modal models have recently drawn increasing attention, driven by their critical impacts on granularity-diverse conversations. 
-	Despite the high quality in images generated with short captions, most of them deteriorate drastically when long contexts with multiple instances are provided. 
-		  The resulting instances in the generated images are hard to be consistent with those in former images. 
-		  This attributes to the models' weakness in capturing the features of these instances sparsely located in the long input sequence.
+	Despite the high quality in images generated with short captions, most of them deteriorate drastically when <b>long contexts with multiple instances</b> are provided. 
+		  The resulting instances in the generated images are hard to be consistent with those in former images.
 		  To address this issue, we propose Maple, 
 		  a large-scale open-domain generative multi-modal model. 
 		  Maple is able to take long context with interleaved images and text as guidance to generate images and keep the instances in the generated image consistent with the given inputs. 
-		  This is realized by a training schedule focused on instance-level consistency, and a long-context decoupling mechanism to balance contextual information of different importance. 
-		  Specifically, (1) we introduce a new image generation approach that utilizes instances as extra inputs to emphasize their features in the multi-modal context, enhancing instance-level consistency.
-		  To train this model, we provide an extensive open-domain dataset with recurring instances across image sequences. We also propose a multi-stage training strategy,
-		  evolving from instance-grounded single-round generation to multi-modal context-aware multi-turn generation. 
-		  (2) We decouple the multi-modal context into two inputs, the highly related current caption and the broader multi-modal context with low information density, 
-		  allowing for differential prioritization through a tailored attention mechanism within the UNet of diffusion model. This mechanism refines the attention to focus on instance-level features relevant 
-		  to current instructions when perceiving multimodal context. 
-		  Remarkably, the proposed Maple exhibits superior performance in generating high-quality images which are more coherent to the inputs and outperform current state-of-the-art multi-modal visual generators in contextual visual consistency. 
+		  In this paper, we propose a training schedule focused on instance-level consistency, and a long-context decoupling mechanism to balance contextual information of different importance. 
+				   <br>
 		   <br>
-		   <br>
-		  <em style="font-size: 16px;">NeurIPS 2024, under review</em>
+		  <em style="font-size: 16px;">Tech Report</em>
             <br>
 <!--             <a href="https://www.cs.rochester.edu/u/yyao39/files/PiLife.pdf">Paper</a> /
             <a href="https://promptimage2life.github.io/">project page</a>  -->
@@ -323,7 +314,7 @@
             For a long time, it has been a challenging task that demands both subject consistency and text semantic alignment. 
             Moreover, existing I2V generators require expensive training on large video datasets. 
             To address this issue, we propose PiLife, a novel training-free I2V framework that leverages a pre-trained text-to-image diffusion model. PiLife can generate videos that are coherent with a given image and aligned with the semantics of a given text, which mainly consists of three components: (i) A motion-aware diffusion inversion module that embeds motion semantics into the inverted images as the initial frames; (ii) A motion-aware noise initialization module that employs a motion text attention map to modulate the diffusion process and adjust the motion intensity of different regions with spatial noise;  (iii) A probabilistic cross-frame attention module that leverages a geometric distribution to randomly sample a frame and compute attention with it, thereby enhancing the motion diversity. Experiments show that PiLife significantly outperforms the training-free baselines, and is comparable or even superior to some training-based I2V methods.         <br><br>
-            <em style="font-size: 16px;">ECCV 2024, under review</em>
+            <em style="font-size: 16px;">Tech Report, Best Project in "MetaVerse and VR Course Project"</em>
             <br>
             <a href="https://www.cs.rochester.edu/u/yyao39/files/PiLife.pdf">Paper</a> /
             <a href="https://promptimage2life.github.io/">project page</a> 
@@ -369,7 +360,11 @@
                   enabling the training of modelscapable of comprehending and generating intricate multi-modal narratives from extensive visual and textual inputs.
                         
             <br><br>
+		 
             <em style="font-size: 16px;">CVPR 2024@VDU, <font color="#FF0000">Oral Presentation</font></em>
+<br>
+		   <a href="https://openaccess.thecvf.com/content/CVPR2024W/VDU/html/Ye_OpenStory_A_Large-Scale_Open-Domain_Dataset_for_Subject-Driven_Visual_Storytelling_CVPRW_2024_paper.html">Paper</a> /
+		  
             <br>
 
             <p></p>
