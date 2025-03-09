@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="generator" content="Astro v5.4.2">
+    <title>In Context Learning Video Generation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="_asset/index.B9oQn3HP.css">
+</head>
+
+<body>
+    <main>
+        <section class="hero" data-astro-cid-j7pv25f6>
+            <div class="hero-background" data-astro-cid-j7pv25f6> <video src="static_resources/TitleVideo.mp4" autoplay
+                    muted loop playsinline data-astro-cid-j7pv25f6></video>
+                <div class="overlay" data-astro-cid-j7pv25f6></div>
+            </div>
+            <div class="hero-content" data-astro-cid-j7pv25f6>
+                <h1 data-astro-cid-j7pv25f6> <span class="main-title" data-astro-cid-j7pv25f6>PhysICL</span> <span
+                        class="subtitle" data-astro-cid-j7pv25f6>Learning In-Context World Physics for Video
+                        Generation</span> </h1>
+                <div class="anonymous-authors" data-astro-cid-j7pv25f6>Anonymous Submission</div>
+            </div>
+        </section>
+        <section class="abstract-section" data-astro-cid-lpv2dwx6>
+            <h2 data-astro-cid-lpv2dwx6>Abstract</h2>
+            <div class="abstract-content" data-astro-cid-lpv2dwx6>
+                <p data-astro-cid-lpv2dwx6>
+                    Recent advances in video generation models have achieved impressive feats in creating personalized,
+                    diverse videos. However, these models face a significant barrier: they fail to simulate physically
+                    plausible phenomena, as they primarily learn data distributions without accounting for underlying
+                    physical laws. Physics engines, on the other hand, excel at precise simulations but are limited to
+                    closed-domain scenarios, relying heavily on predefined assets. To address this issue, we introduce
+                    PhysICL, a framework that integrates physical simulation priors through in-context learning, which
+                    is the first of its kind to seamlessly combine the power of physics engines with generative models.
+                    At the core of PhysICL, a physics engine-guided LLM agent autonomously retrieves reference
+                    simulations from an asset library and adapts them to user-defined scenes by manipulating the latent
+                    space in a context-aware manner through an in-context learning pipeline. This novel decoupling of
+                    physical reasoning from visual synthesis allows PhysICL to achieve truly open-domain physical
+                    simulation, generating videos with realistic, physically plausible phenomena. Our results surpass
+                    existing video generation models lacking physics context, demonstrating significant improvements in
+                    quantitative metrics and human preference evaluations. We show that physical parameters can
+                    precisely control our model, unlocking unprecedented flexibility and creative control. Furthermore,
+                    we conduct experiments on robotics datasets, highlighting the real-world potential of PhysICL.
+                    The source code will be released.
+                </p>
+            </div>
+        </section>
+        <section class="method" data-astro-cid-gkk5ym2j>
+            <h2 data-astro-cid-gkk5ym2j>Method Overview</h2>
+            <div class="method-content" data-astro-cid-gkk5ym2j>
+                <div class="pipeline-image" data-astro-cid-gkk5ym2j> <img src="static_resources/pipeline.png"
+                        alt="Method pipeline overview" data-astro-cid-gkk5ym2j> </div>
+                <p class="description" data-astro-cid-gkk5ym2j>
+                <p><strong>Overview of our proposed pipeline.</strong></p>
+                <p>The first stage generates a video using a physics engine to simulate desired physical phenomena, as
+                    outlined in Section 3.1.</p>
+                <p>The second stage applies motion transfer using our in-context learning framework, detailed in Section
+                    3.2.</p>
+                <p>The training logic behind our approach is discussed in Section 3.3</p>
+                </p>
+            </div>
+        </section>
+        <section class="physical-phenomenon" data-astro-cid-j7pv25f6>
+            <h2 data-astro-cid-j7pv25f6>Physics Engine Simulation In-Context Learning</h2>
+            <p class="section-description" data-astro-cid-j7pv25f6>
+                Our model can accurately capture and reproduce various physical phenomena, maintaining physical
+                plausibility across different scenarios.
+            </p>
+            <div class="phenomenon-container" data-astro-cid-j7pv25f6>
+                <div class="phenomenon-grid" data-astro-cid-j7pv25f6>
+                    <div class="phenomenon-pair" id="physical_1" data-astro-cid-j7pv25f6>
+                        <div class="video-grid no-context" data-astro-cid-j7pv25f6>
+                            <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                    src="static_resources/demo/phy/phy_1a.mp4" autoplay muted loop playsinline
+                                    data-astro-cid-j7pv25f6></video>
+                                <div class="video-label" data-astro-cid-j7pv25f6>Reference</div>
+                            </div>
+                            <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                    src="static_resources/demo/phy/phy_1b.mp4" autoplay muted loop playsinline
+                                    data-astro-cid-j7pv25f6></video>
+                                <div class="video-label" data-astro-cid-j7pv25f6>Generated</div>
+                            </div>
+                        </div>
+                        <div class="video-caption" data-astro-cid-j7pv25f6>Melting...</div>
+                    </div>
+                    <div class="phenomenon-pair" id="physical_2" data-astro-cid-j7pv25f6>
+                        <div class="video-grid no-context" data-astro-cid-j7pv25f6>
+                            <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                    src="static_resources/demo/phy/phy_2a.mp4" autoplay muted loop playsinline
+                                    data-astro-cid-j7pv25f6></video>
+                                <div class="video-label" data-astro-cid-j7pv25f6>Reference</div>
+                            </div>
+                            <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                    src="static_resources/demo/phy/phy_2b.mp4" autoplay muted loop playsinline
+                                    data-astro-cid-j7pv25f6></video>
+                                <div class="video-label" data-astro-cid-j7pv25f6>Generated</div>
+                            </div>
+                        </div>
+                        <div class="video-caption" data-astro-cid-j7pv25f6>Drop onto ground...</div>
+                    </div>
+                    <div class="phenomenon-pair" id="physical_3" data-astro-cid-j7pv25f6>
+                        <div class="video-grid no-context" data-astro-cid-j7pv25f6>
+                            <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                    src="static_resources/demo/phy/phy_3a.mp4" autoplay muted loop playsinline
+                                    data-astro-cid-j7pv25f6></video>
+                                <div class="video-label" data-astro-cid-j7pv25f6>Reference</div>
+                            </div>
+                            <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                    src="static_resources/demo/phy/phy_3b.mp4" autoplay muted loop playsinline
+                                    data-astro-cid-j7pv25f6></video>
+                                <div class="video-label" data-astro-cid-j7pv25f6>Generated</div>
+                            </div>
+                        </div>
+                        <div class="video-caption" data-astro-cid-j7pv25f6>Wind blowing through...</div>
+                    </div>
+                    <div class="phenomenon-pair" id="physical_4" data-astro-cid-j7pv25f6>
+                        <div class="video-grid no-context" data-astro-cid-j7pv25f6>
+                            <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                    src="static_resources/demo/phy/phy_4a.mp4" autoplay muted loop playsinline
+                                    data-astro-cid-j7pv25f6></video>
+                                <div class="video-label" data-astro-cid-j7pv25f6>Reference</div>
+                            </div>
+                            <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                    src="static_resources/demo/phy/phy_4b.mp4" autoplay muted loop playsinline
+                                    data-astro-cid-j7pv25f6></video>
+                                <div class="video-label" data-astro-cid-j7pv25f6>Generated</div>
+                            </div>
+                        </div>
+                        <div class="video-caption" data-astro-cid-j7pv25f6>Smoke flowing...</div>
+                    </div>
+                    <div class="phenomenon-pair" id="physical_5" data-astro-cid-j7pv25f6>
+                        <div class="video-grid no-context" data-astro-cid-j7pv25f6>
+                            <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                    src="static_resources/demo/phy/phy_5a.mp4" autoplay muted loop playsinline
+                                    data-astro-cid-j7pv25f6></video>
+                                <div class="video-label" data-astro-cid-j7pv25f6>Reference</div>
+                            </div>
+                            <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                    src="static_resources/demo/phy/phy_5b.mp4" autoplay muted loop playsinline
+                                    data-astro-cid-j7pv25f6></video>
+                                <div class="video-label" data-astro-cid-j7pv25f6>Generated</div>
+                            </div>
+                        </div>
+                        <div class="video-caption" data-astro-cid-j7pv25f6>Wind blowing...</div>
+                    </div>
+                    <div class="phenomenon-pair" id="physical_6" data-astro-cid-j7pv25f6>
+                        <div class="video-grid no-context" data-astro-cid-j7pv25f6>
+                            <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                    src="static_resources/demo/phy/phy_6a.mp4" autoplay muted loop playsinline
+                                    data-astro-cid-j7pv25f6></video>
+                                <div class="video-label" data-astro-cid-j7pv25f6>Reference</div>
+                            </div>
+                            <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                    src="static_resources/demo/phy/phy_6b.mp4" autoplay muted loop playsinline
+                                    data-astro-cid-j7pv25f6></video>
+                                <div class="video-label" data-astro-cid-j7pv25f6>Generated</div>
+                            </div>
+                        </div>
+                        <div class="video-caption" data-astro-cid-j7pv25f6>Wind blowing...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="controllable-magnitude" data-astro-cid-j7pv25f6>
+            <h2 data-astro-cid-j7pv25f6>Controllable Magnitude</h2>
+            <p class="section-description" data-astro-cid-j7pv25f6>
+                Our model can precisely control the physial parameters by physics engine while maintaining the same motion
+                pattern, demonstrating fine-grained control over generated videos.
+            </p>
+            <div class="magnitude-container" data-astro-cid-j7pv25f6>
+                <div class="magnitude-pairs" data-astro-cid-j7pv25f6>
+                    <div class="magnitude-row" data-astro-cid-j7pv25f6>
+                        <h4 class="pair-title" data-astro-cid-j7pv25f6>Weak</h4>
+                        <div class="group-videos" data-astro-cid-j7pv25f6>
+                            <div class="group-section" data-astro-cid-j7pv25f6>
+                                <h3 data-astro-cid-j7pv25f6>Group 1</h3>
+                                <div class="video-grid no-context" data-astro-cid-j7pv25f6>
+                                    <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                            src="static_resources/demo/para/para_1a.mp4" autoplay muted loop
+                                            playsinline data-astro-cid-j7pv25f6></video>
+                                        <div class="video-label" data-astro-cid-j7pv25f6>Reference</div>
+                                    </div>
+                                    <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                            src="static_resources/demo/para/para_1d.mp4" autoplay muted loop
+                                            playsinline data-astro-cid-j7pv25f6></video>
+                                        <div class="video-label" data-astro-cid-j7pv25f6>Generated</div>
+                                    </div>
+                                </div>
+                                <div class="video-caption" data-astro-cid-j7pv25f6>Wind blowing with weak intensity...
+                                </div>
+                            </div>
+                            <div class="group-section" data-astro-cid-j7pv25f6>
+                                <h3 data-astro-cid-j7pv25f6>Group 2</h3>
+                                <div class="video-grid no-context" data-astro-cid-j7pv25f6>
+                                    <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                            src="static_resources/demo/para/para_2a.mp4" autoplay muted loop
+                                            playsinline data-astro-cid-j7pv25f6></video>
+                                        <div class="video-label" data-astro-cid-j7pv25f6>Reference</div>
+                                    </div>
+                                    <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                            src="static_resources/demo/para/para_2d.mp4" autoplay muted loop
+                                            playsinline data-astro-cid-j7pv25f6></video>
+                                        <div class="video-label" data-astro-cid-j7pv25f6>Generated</div>
+                                    </div>
+                                </div>
+                                <div class="video-caption" data-astro-cid-j7pv25f6>Smoke flowing with weak intensity...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="magnitude-row" data-astro-cid-j7pv25f6>
+                        <h4 class="pair-title" data-astro-cid-j7pv25f6>Medium</h4>
+                        <div class="group-videos" data-astro-cid-j7pv25f6>
+                            <div class="group-section" data-astro-cid-j7pv25f6>
+                                <h3 data-astro-cid-j7pv25f6>Group 1</h3>
+                                <div class="video-grid no-context" data-astro-cid-j7pv25f6>
+                                    <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                            src="static_resources/demo/para/para_1b.mp4" autoplay muted loop
+                                            playsinline data-astro-cid-j7pv25f6></video>
+                                        <div class="video-label" data-astro-cid-j7pv25f6>Reference</div>
+                                    </div>
+                                    <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                            src="static_resources/demo/para/para_1e.mp4" autoplay muted loop
+                                            playsinline data-astro-cid-j7pv25f6></video>
+                                        <div class="video-label" data-astro-cid-j7pv25f6>Generated</div>
+                                    </div>
+                                </div>
+                                <div class="video-caption" data-astro-cid-j7pv25f6>Wind blowing with medium intensity...
+                                </div>
+                            </div>
+                            <div class="group-section" data-astro-cid-j7pv25f6>
+                                <h3 data-astro-cid-j7pv25f6>Group 2</h3>
+                                <div class="video-grid no-context" data-astro-cid-j7pv25f6>
+                                    <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                            src="static_resources/demo/para/para_2b.mp4" autoplay muted loop
+                                            playsinline data-astro-cid-j7pv25f6></video>
+                                        <div class="video-label" data-astro-cid-j7pv25f6>Reference</div>
+                                    </div>
+                                    <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                            src="static_resources/demo/para/para_2e.mp4" autoplay muted loop
+                                            playsinline data-astro-cid-j7pv25f6></video>
+                                        <div class="video-label" data-astro-cid-j7pv25f6>Generated</div>
+                                    </div>
+                                </div>
+                                <div class="video-caption" data-astro-cid-j7pv25f6>Smoke flowing with medium
+                                    intensity...</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="magnitude-row" data-astro-cid-j7pv25f6>
+                        <h4 class="pair-title" data-astro-cid-j7pv25f6>Strong</h4>
+                        <div class="group-videos" data-astro-cid-j7pv25f6>
+                            <div class="group-section" data-astro-cid-j7pv25f6>
+                                <h3 data-astro-cid-j7pv25f6>Group 1</h3>
+                                <div class="video-grid no-context" data-astro-cid-j7pv25f6>
+                                    <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                            src="static_resources/demo/para/para_1c.mp4" autoplay muted loop
+                                            playsinline data-astro-cid-j7pv25f6></video>
+                                        <div class="video-label" data-astro-cid-j7pv25f6>Reference</div>
+                                    </div>
+                                    <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                            src="static_resources/demo/para/para_1f.mp4" autoplay muted loop
+                                            playsinline data-astro-cid-j7pv25f6></video>
+                                        <div class="video-label" data-astro-cid-j7pv25f6>Generated</div>
+                                    </div>
+                                </div>
+                                <div class="video-caption" data-astro-cid-j7pv25f6>Wind blowing with strong intensity...
+                                </div>
+                            </div>
+                            <div class="group-section" data-astro-cid-j7pv25f6>
+                                <h3 data-astro-cid-j7pv25f6>Group 2</h3>
+                                <div class="video-grid no-context" data-astro-cid-j7pv25f6>
+                                    <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                            src="static_resources/demo/para/para_2c.mp4" autoplay muted loop
+                                            playsinline data-astro-cid-j7pv25f6></video>
+                                        <div class="video-label" data-astro-cid-j7pv25f6>Reference</div>
+                                    </div>
+                                    <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                            src="static_resources/demo/para/para_2f.mp4" autoplay muted loop
+                                            playsinline data-astro-cid-j7pv25f6></video>
+                                        <div class="video-label" data-astro-cid-j7pv25f6>Generated</div>
+                                    </div>
+                                </div>
+                                <div class="video-caption" data-astro-cid-j7pv25f6>Smoke flowing with strong
+                                    intensity...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="simulation" data-astro-cid-j7pv25f6>
+            <h2 data-astro-cid-j7pv25f6>Real World Physics In-Context Learning </h2>
+            <p class="section-description" data-astro-cid-j7pv25f6>
+                Our model demonstrates exceptional performance in simulating real-world physics, accurately capturing
+                and reproducing complex physical interactions and phenomena.
+            </p>
+            <div class="simulation-container" data-astro-cid-j7pv25f6>
+                <div class="simulation-grid" data-astro-cid-j7pv25f6>
+                    <div class="simulation-pair" id="simulation_1" data-astro-cid-j7pv25f6>
+                        <div class="video-grid no-context" data-astro-cid-j7pv25f6>
+                            <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                    src="static_resources/demo/real/real_1a.mp4" autoplay muted loop playsinline
+                                    data-astro-cid-j7pv25f6></video>
+                                <div class="video-label" data-astro-cid-j7pv25f6>Reference</div>
+                            </div>
+                            <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                    src="static_resources/demo/real/real_1b.mp4" autoplay muted loop playsinline
+                                    data-astro-cid-j7pv25f6></video>
+                                <div class="video-label" data-astro-cid-j7pv25f6>Generated</div>
+                            </div>
+                        </div>
+                        <div class="video-caption" data-astro-cid-j7pv25f6>Drive on a road...</div>
+                    </div>
+                    <div class="simulation-pair" id="simulation_2" data-astro-cid-j7pv25f6>
+                        <div class="video-grid no-context" data-astro-cid-j7pv25f6>
+                            <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                    src="static_resources/demo/real/real_2a.mp4" autoplay muted loop playsinline
+                                    data-astro-cid-j7pv25f6></video>
+                                <div class="video-label" data-astro-cid-j7pv25f6>Reference</div>
+                            </div>
+                            <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                    src="static_resources/demo/real/real_2b.mp4" autoplay muted loop playsinline
+                                    data-astro-cid-j7pv25f6></video>
+                                <div class="video-label" data-astro-cid-j7pv25f6>Generated</div>
+                            </div>
+                        </div>
+                        <div class="video-caption" data-astro-cid-j7pv25f6>Opening a drawer...</div>
+                    </div>
+                    <div class="simulation-pair" id="simulation_3" data-astro-cid-j7pv25f6>
+                        <div class="video-grid no-context" data-astro-cid-j7pv25f6>
+                            <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                    src="static_resources/demo/real/real_3a.mp4" autoplay muted loop playsinline
+                                    data-astro-cid-j7pv25f6></video>
+                                <div class="video-label" data-astro-cid-j7pv25f6>Reference</div>
+                            </div>
+                            <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                    src="static_resources/demo/real/real_3b.mp4" autoplay muted loop playsinline
+                                    data-astro-cid-j7pv25f6></video>
+                                <div class="video-label" data-astro-cid-j7pv25f6>Generated</div>
+                            </div>
+                        </div>
+                        <div class="video-caption" data-astro-cid-j7pv25f6>Wind blowing...</div>
+                    </div>
+                    <div class="simulation-pair" id="simulation_4" data-astro-cid-j7pv25f6>
+                        <div class="video-grid no-context" data-astro-cid-j7pv25f6>
+                            <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                    src="static_resources/demo/real/real_4a.mp4" autoplay muted loop playsinline
+                                    data-astro-cid-j7pv25f6></video>
+                                <div class="video-label" data-astro-cid-j7pv25f6>Reference</div>
+                            </div>
+                            <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                    src="static_resources/demo/real/real_4b.mp4" autoplay muted loop playsinline
+                                    data-astro-cid-j7pv25f6></video>
+                                <div class="video-label" data-astro-cid-j7pv25f6>Generated</div>
+                            </div>
+                        </div>
+                        <div class="video-caption" data-astro-cid-j7pv25f6>Cooking...</div>
+                    </div>
+                    <div class="simulation-pair" id="simulation_5" data-astro-cid-j7pv25f6>
+                        <div class="video-grid no-context" data-astro-cid-j7pv25f6>
+                            <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                    src="static_resources/demo/real/real_5a.mp4" autoplay muted loop playsinline
+                                    data-astro-cid-j7pv25f6></video>
+                                <div class="video-label" data-astro-cid-j7pv25f6>Reference</div>
+                            </div>
+                            <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                    src="static_resources/demo/real/real_5b.mp4" autoplay muted loop playsinline
+                                    data-astro-cid-j7pv25f6></video>
+                                <div class="video-label" data-astro-cid-j7pv25f6>Generated</div>
+                            </div>
+                        </div>
+                        <div class="video-caption" data-astro-cid-j7pv25f6>Wind blowing...</div>
+                    </div>
+                    <div class="simulation-pair" id="simulation_6" data-astro-cid-j7pv25f6>
+                        <div class="video-grid no-context" data-astro-cid-j7pv25f6>
+                            <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                    src="static_resources/demo/real/real_6a.mp4" autoplay muted loop playsinline
+                                    data-astro-cid-j7pv25f6></video>
+                                <div class="video-label" data-astro-cid-j7pv25f6>Reference</div>
+                            </div>
+                            <div class="video-column" data-astro-cid-j7pv25f6> <video
+                                    src="static_resources/demo/real/real_6b.mp4" autoplay muted loop playsinline
+                                    data-astro-cid-j7pv25f6></video>
+                                <div class="video-label" data-astro-cid-j7pv25f6>Generated</div>
+                            </div>
+                        </div>
+                        <div class="video-caption" data-astro-cid-j7pv25f6>Driving on a road...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
