@@ -312,12 +312,6 @@
             Large-scale pretrained diffusion models have significantly enhanced the quality of generated videos, and yet their use in real-time streaming remains limited. Autoregressive models offer a natural framework for sequential frame synthesis but require heavy computation to achieve high fidelity. Diffusion distillation can compress these models into efficient few-step variants, but existing video distillation approaches largely adapt image-specific methods that neglect temporal dependencies. These techniques often excel in image generation but underperform in video synthesis, exhibiting reduced motion coherence, error accumulation over long sequences, and a latency–quality trade-off. We identify two factors that result in these limitations: insufficient utilization of temporal context during step reduction and implicit prediction of subsequent noise levels in next-chunk prediction (exposure bias). To address these issues, we propose Diagonal Distillation, which operates orthogonally to existing approaches and better exploits temporal information across both video chunks and denoising steps. Central to our approach is an asymmetric generation strategy: more steps early, fewer steps later. This design allows later chunks to inherit rich appearance information from thoroughly processed early chunks, while using partially denoised chunks as conditional inputs for subsequent synthesis. By aligning the implicit prediction of subsequent noise levels during chunk generation with the actual inference conditions, our approach mitigates error propagation and reduces oversaturation in long-range sequences. We further incorporate implicit optical flow modeling to preserve motion quality under strict step constraints. Our method generates a 5-second video in just 2.61 seconds (up to 31 FPS), achieving a 277.3× speedup over the undistilled model and doubling the acceleration ratio of the state-of-the-art (140×) without sacrificing visual quality. <br><br>
             <em style="font-size: 16px;"> ICLR 2026 under review </em>
             <br>
-            <!-- <a href="">paper (Attached by email)</a> /  -->
-	    <a href="https://arxiv.org/abs/2412.11100">Paper / </a> 
-            <br>
-	    <a href="https://github.com/Brandon-Liu-Jx/DynamicScaler"> Code / </a> 
-            <!-- <a href="https://github.com/Sphere-AI-Lab/diagdistill/tree/main">project page</a>  -->
-	    
             <a href="https://spherelab.ai/diagdistill/">project page / </a> 
 		  
             <p></p>
