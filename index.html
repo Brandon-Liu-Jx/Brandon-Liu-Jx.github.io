@@ -252,15 +252,77 @@
       <table style="width:100%;border:0px;border-spacing:10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
 
+        <tr>
+          <td style="padding:20px;width:25%;vertical-align:middle">
+            <img src="images/nex3.png" alt="layoutgpt_gif" width="200" height="150 " style="border-style: none">
+          </td>
+          <td width="75%" valign="middle">
+            <a href="">
+              <papertitle>Nex-N1: Agentic Models Trained via a Unified Ecosystem for Large-Scale Environment Construction</papertitle>
+            </a>
+            <br><br>
+            <!-- <strong style="color: #0F52BA;">Jinxiu Liu*</strong>, &nbsp; -->
+            <a href="" style="color: black;">Nex-AGI TEAM (including <b>Jinxiu Liu</b>)</a>, &nbsp;
+            <!-- <a href="" style="color: black;">Kangfu Mei</a>, &nbsp;
+            <a href="" style="color: black;">Yandong Wen</a>, &nbsp;			  
+            <a href="" style="color: black;">Ming-Hsuan Yang</a>, &nbsp;
+            <a href="" style="color: black;">Weiyang Liu</a>, &nbsp; -->
 		  
+            <!-- <a href="https://tsujuifu.github.io/" style="color: black;">Tsu-Jui Fu</a>, &nbsp;
+            <a href="https://varunjampani.github.io/" style="color: black;">Varun Jampani</a>, &nbsp;
+            <a href="https://www.arjunakula.com/" style="color: black;">Arjun Akula</a>, &nbsp;
+            <a href="https://scholar.google.com/citations?user=kDzxOzUAAAAJ&hl=en" style="color: black;">Xuehai He</a>, &nbsp;
+            <a href="https://sites.google.com/site/sugatobasu/" style="color: black;">Sugato Basu</a>, &nbsp;
+            <a href="https://eric-xw.github.io/" style="color: black;">Xin Eric Wang</a>, &nbsp;
+            <a href="https://sites.cs.ucsb.edu/~william/" style="color: black;">William Yang Wang</a> -->
+            <br>
+            <br>
+            The evolution of Large Language Models (LLMs) from passive responders to autonomous agents necessitates a fundamental shift in learning paradigms -- from static imitation to incentive-driven decision making. However, this transition is significantly impeded by the lack of scalable infrastructure capable of constructing high-quality interaction signals for effective policy learning. To address this, we introduce a comprehensive method designed to systematically scale the diversity and complexity of interactive environments. Our method realizes this scaling by addressing three orthogonal dimensions: (1) Complexity: NexAU, a flexible agent framework that supports building complex agent hierarchies via simple configurations; (2) Diversity: NexA4A automatically generates diverse agent hierarchies from natural language to cover infinite domains; and (3) Fidelity: NexGAP bridges the simulation-reality gap by integrating dynamic real-world environment for grounded trajectories synthesis. We train Nex-N1 upon the diverse and complex interactive environments established by our infrastructure. Empirical results on benchmarks such as SWE-bench and tau2 demonstrate that Nex-N1 consistently outperforms SOTA open-source models and achieves competitive performance against frontier proprietary models on complex agentic tasks. We open-source the Nex ecosystem and model weights to facilitate further research. <br><br>
+            <em style="font-size: 16px;"> Tech Report and Open Source Ecosystem Project </em>
+            <br>
+            <a href=" https://github.com/nex-agi ">Project page / </a> /
+            <a href="https://arxiv.org/abs/2512.04987">Paper</a> 
+		  
+            <p></p>
+          </td>
+        </tr>			
+        
+        
 
 
-
-
-  
-
-
-
+        <tr>
+          <td style="padding:20px;width:25%;vertical-align:middle">
+            <img src="images/dia3.gif" alt="layoutgpt_gif" width="200" height="150 " style="border-style: none">
+          </td>
+          <td width="75%" valign="middle">
+            <a href="">
+              <papertitle>Streaming Autoregressive Video Generation via Diagonal Distillation</papertitle>
+            </a>
+            <br><br>
+            <strong style="color: #0F52BA;">Jinxiu Liu*</strong>, &nbsp;
+            <a href="" style="color: black;">Xuanming Liu*</a>, &nbsp;
+            <a href="" style="color: black;">Kangfu Mei</a>, &nbsp;
+            <a href="" style="color: black;">Yandong Wen</a>, &nbsp;			  
+            <a href="" style="color: black;">Ming-Hsuan Yang</a>, &nbsp;
+            <a href="" style="color: black;">Weiyang Liu</a>, &nbsp;
+		  
+            <!-- <a href="https://tsujuifu.github.io/" style="color: black;">Tsu-Jui Fu</a>, &nbsp;
+            <a href="https://varunjampani.github.io/" style="color: black;">Varun Jampani</a>, &nbsp;
+            <a href="https://www.arjunakula.com/" style="color: black;">Arjun Akula</a>, &nbsp;
+            <a href="https://scholar.google.com/citations?user=kDzxOzUAAAAJ&hl=en" style="color: black;">Xuehai He</a>, &nbsp;
+            <a href="https://sites.google.com/site/sugatobasu/" style="color: black;">Sugato Basu</a>, &nbsp;
+            <a href="https://eric-xw.github.io/" style="color: black;">Xin Eric Wang</a>, &nbsp;
+            <a href="https://sites.cs.ucsb.edu/~william/" style="color: black;">William Yang Wang</a> -->
+            <br>
+            <br>
+            Large-scale pretrained diffusion models have significantly enhanced the quality of generated videos, and yet their use in real-time streaming remains limited. Autoregressive models offer a natural framework for sequential frame synthesis but require heavy computation to achieve high fidelity. Diffusion distillation can compress these models into efficient few-step variants, but existing video distillation approaches largely adapt image-specific methods that neglect temporal dependencies. These techniques often excel in image generation but underperform in video synthesis, exhibiting reduced motion coherence, error accumulation over long sequences, and a latency–quality trade-off. We identify two factors that result in these limitations: insufficient utilization of temporal context during step reduction and implicit prediction of subsequent noise levels in next-chunk prediction (exposure bias). To address these issues, we propose Diagonal Distillation, which operates orthogonally to existing approaches and better exploits temporal information across both video chunks and denoising steps. Central to our approach is an asymmetric generation strategy: more steps early, fewer steps later. This design allows later chunks to inherit rich appearance information from thoroughly processed early chunks, while using partially denoised chunks as conditional inputs for subsequent synthesis. By aligning the implicit prediction of subsequent noise levels during chunk generation with the actual inference conditions, our approach mitigates error propagation and reduces oversaturation in long-range sequences. We further incorporate implicit optical flow modeling to preserve motion quality under strict step constraints. Our method generates a 5-second video in just 2.61 seconds (up to 31 FPS), achieving a 277.3× speedup over the undistilled model and doubling the acceleration ratio of the state-of-the-art (140×) without sacrificing visual quality. <br><br>
+            <em style="font-size: 16px;"> ICLR 2026 under review </em>
+            <br>
+            <a href="https://diagonal-distillation.github.io/">Project page / </a> 
+		  
+            <p></p>
+          </td>
+        </tr>		
 		  
 		  
         <tr>
@@ -341,39 +403,7 @@
 
 
 
-        <tr>
-          <td style="padding:20px;width:25%;vertical-align:middle">
-            <img src="images/dia3.gif" alt="layoutgpt_gif" width="200" height="150 " style="border-style: none">
-          </td>
-          <td width="75%" valign="middle">
-            <a href="">
-              <papertitle>Streaming Autoregressive Video Generation via Diagonal Distillation</papertitle>
-            </a>
-            <br><br>
-            <strong style="color: #0F52BA;">Jinxiu Liu*</strong>, &nbsp;
-            <a href="" style="color: black;">Xuanming Liu*</a>, &nbsp;
-            <a href="" style="color: black;">Kangfu Mei</a>, &nbsp;
-            <a href="" style="color: black;">Yandong Wen</a>, &nbsp;			  
-            <a href="" style="color: black;">Ming-Hsuan Yang</a>, &nbsp;
-            <a href="" style="color: black;">Weiyang Liu</a>, &nbsp;
-		  
-            <!-- <a href="https://tsujuifu.github.io/" style="color: black;">Tsu-Jui Fu</a>, &nbsp;
-            <a href="https://varunjampani.github.io/" style="color: black;">Varun Jampani</a>, &nbsp;
-            <a href="https://www.arjunakula.com/" style="color: black;">Arjun Akula</a>, &nbsp;
-            <a href="https://scholar.google.com/citations?user=kDzxOzUAAAAJ&hl=en" style="color: black;">Xuehai He</a>, &nbsp;
-            <a href="https://sites.google.com/site/sugatobasu/" style="color: black;">Sugato Basu</a>, &nbsp;
-            <a href="https://eric-xw.github.io/" style="color: black;">Xin Eric Wang</a>, &nbsp;
-            <a href="https://sites.cs.ucsb.edu/~william/" style="color: black;">William Yang Wang</a> -->
-            <br>
-            <br>
-            Large-scale pretrained diffusion models have significantly enhanced the quality of generated videos, and yet their use in real-time streaming remains limited. Autoregressive models offer a natural framework for sequential frame synthesis but require heavy computation to achieve high fidelity. Diffusion distillation can compress these models into efficient few-step variants, but existing video distillation approaches largely adapt image-specific methods that neglect temporal dependencies. These techniques often excel in image generation but underperform in video synthesis, exhibiting reduced motion coherence, error accumulation over long sequences, and a latency–quality trade-off. We identify two factors that result in these limitations: insufficient utilization of temporal context during step reduction and implicit prediction of subsequent noise levels in next-chunk prediction (exposure bias). To address these issues, we propose Diagonal Distillation, which operates orthogonally to existing approaches and better exploits temporal information across both video chunks and denoising steps. Central to our approach is an asymmetric generation strategy: more steps early, fewer steps later. This design allows later chunks to inherit rich appearance information from thoroughly processed early chunks, while using partially denoised chunks as conditional inputs for subsequent synthesis. By aligning the implicit prediction of subsequent noise levels during chunk generation with the actual inference conditions, our approach mitigates error propagation and reduces oversaturation in long-range sequences. We further incorporate implicit optical flow modeling to preserve motion quality under strict step constraints. Our method generates a 5-second video in just 2.61 seconds (up to 31 FPS), achieving a 277.3× speedup over the undistilled model and doubling the acceleration ratio of the state-of-the-art (140×) without sacrificing visual quality. <br><br>
-            <em style="font-size: 16px;"> ICLR 2026 under review </em>
-            <br>
-            <a href="https://diagonal-distillation.github.io/">Project page / </a> 
-		  
-            <p></p>
-          </td>
-        </tr>		
+
 
         <tr>
           <td style="padding:20px;width:25%;vertical-align:middle">
@@ -440,40 +470,6 @@
 		</tr>		  
 
 
-        <tr>
-          <td style="padding:20px;width:25%;vertical-align:middle">
-            <img src="images/nex2.png" alt="layoutgpt_gif" width="200" height="150 " style="border-style: none">
-          </td>
-          <td width="75%" valign="middle">
-            <a href="">
-              <papertitle>Nex-N1: Agentic Models Trained via a Unified Ecosystem for Large-Scale Environment Construction</papertitle>
-            </a>
-            <br><br>
-            <!-- <strong style="color: #0F52BA;">Jinxiu Liu*</strong>, &nbsp; -->
-            <a href="" style="color: black;">Nex-AGI TEAM (including <b>Jinxiu Liu</b>)</a>, &nbsp;
-            <!-- <a href="" style="color: black;">Kangfu Mei</a>, &nbsp;
-            <a href="" style="color: black;">Yandong Wen</a>, &nbsp;			  
-            <a href="" style="color: black;">Ming-Hsuan Yang</a>, &nbsp;
-            <a href="" style="color: black;">Weiyang Liu</a>, &nbsp; -->
-		  
-            <!-- <a href="https://tsujuifu.github.io/" style="color: black;">Tsu-Jui Fu</a>, &nbsp;
-            <a href="https://varunjampani.github.io/" style="color: black;">Varun Jampani</a>, &nbsp;
-            <a href="https://www.arjunakula.com/" style="color: black;">Arjun Akula</a>, &nbsp;
-            <a href="https://scholar.google.com/citations?user=kDzxOzUAAAAJ&hl=en" style="color: black;">Xuehai He</a>, &nbsp;
-            <a href="https://sites.google.com/site/sugatobasu/" style="color: black;">Sugato Basu</a>, &nbsp;
-            <a href="https://eric-xw.github.io/" style="color: black;">Xin Eric Wang</a>, &nbsp;
-            <a href="https://sites.cs.ucsb.edu/~william/" style="color: black;">William Yang Wang</a> -->
-            <br>
-            <br>
-            The evolution of Large Language Models (LLMs) from passive responders to autonomous agents necessitates a fundamental shift in learning paradigms -- from static imitation to incentive-driven decision making. However, this transition is significantly impeded by the lack of scalable infrastructure capable of constructing high-quality interaction signals for effective policy learning. To address this, we introduce a comprehensive method designed to systematically scale the diversity and complexity of interactive environments. Our method realizes this scaling by addressing three orthogonal dimensions: (1) Complexity: NexAU, a flexible agent framework that supports building complex agent hierarchies via simple configurations; (2) Diversity: NexA4A automatically generates diverse agent hierarchies from natural language to cover infinite domains; and (3) Fidelity: NexGAP bridges the simulation-reality gap by integrating dynamic real-world environment for grounded trajectories synthesis. We train Nex-N1 upon the diverse and complex interactive environments established by our infrastructure. Empirical results on benchmarks such as SWE-bench and tau2 demonstrate that Nex-N1 consistently outperforms SOTA open-source models and achieves competitive performance against frontier proprietary models on complex agentic tasks. We open-source the Nex ecosystem and model weights to facilitate further research. <br><br>
-            <em style="font-size: 16px;"> Tech Report and Open Source Ecosystem Project </em>
-            <br>
-            <a href=" https://github.com/nex-agi ">Project page / </a> /
-            <a href="https://arxiv.org/abs/2512.04987">Paper</a> 
-		  
-            <p></p>
-          </td>
-        </tr>		
 		  
 	      
 	      	      
