@@ -322,14 +322,13 @@
             <a href="https://eric-xw.github.io/" style="color: black;">Xin Eric Wang</a>, &nbsp;
             <a href="https://sites.cs.ucsb.edu/~william/" style="color: black;">William Yang Wang</a> -->
             <br>
-            <em style="font-size: 16px;">ICLR 2026</em>
-            <br>
-            [<a href="https://huggingface.co/papers/2603.09488" target="_blank" rel="noopener noreferrer">Paper</a>]
-            [<a href="https://spherelab.ai/diagdistill/" target="_blank" rel="noopener noreferrer">Website</a>]
-            [<a href="https://github.com/Sphere-AI-Lab/diagdistill" target="_blank" rel="noopener noreferrer">Code</a>]
-            <br>
             <br>
             Large-scale pretrained diffusion models have significantly enhanced the quality of generated videos, and yet their use in real-time streaming remains limited. Autoregressive models offer a natural framework for sequential frame synthesis but require heavy computation to achieve high fidelity. Diffusion distillation can compress these models into efficient few-step variants, but existing video distillation approaches largely adapt image-specific methods that neglect temporal dependencies. These techniques often excel in image generation but underperform in video synthesis, exhibiting reduced motion coherence, error accumulation over long sequences, and a latency–quality trade-off. We identify two factors that result in these limitations: insufficient utilization of temporal context during step reduction and implicit prediction of subsequent noise levels in next-chunk prediction (exposure bias). To address these issues, we propose Diagonal Distillation, which operates orthogonally to existing approaches and better exploits temporal information across both video chunks and denoising steps. Central to our approach is an asymmetric generation strategy: more steps early, fewer steps later. This design allows later chunks to inherit rich appearance information from thoroughly processed early chunks, while using partially denoised chunks as conditional inputs for subsequent synthesis. By aligning the implicit prediction of subsequent noise levels during chunk generation with the actual inference conditions, our approach mitigates error propagation and reduces oversaturation in long-range sequences. We further incorporate implicit optical flow modeling to preserve motion quality under strict step constraints. Our method generates a 5-second video in just 2.61 seconds (up to 31 FPS), achieving a 277.3× speedup over the undistilled model and doubling the acceleration ratio of the state-of-the-art (140×) without sacrificing visual quality. <br><br>
+            <em style="font-size: 16px;"> ICLR 2026 </em>
+            <br>
+            <a href="https://huggingface.co/papers/2603.09488" target="_blank" rel="noopener noreferrer">Paper</a> /
+            <a href="https://github.com/Sphere-AI-Lab/diagdistill" target="_blank" rel="noopener noreferrer">Code</a> /
+            <a href="https://spherelab.ai/diagdistill/" target="_blank" rel="noopener noreferrer">Project Page</a>
             <p></p>
           </td>
         </tr>		
