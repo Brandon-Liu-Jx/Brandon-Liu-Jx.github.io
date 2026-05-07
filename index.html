@@ -237,8 +237,12 @@
                One first-author paper was accepted at CVPR 2025. See you in Nashville!            <!-- While visual inputs have played a more important part, I believe that the two modalities are equally important that work at different levels of abstraction. -->
             </p>
 
-			  	<p style="font-size: 16px;">
+			  <p style="font-size: 16px;">
                One first-author paper was accepted at ICLR 2026. See you in Rio!            <!-- While visual inputs have played a more important part, I believe that the two modalities are equally important that work at different levels of abstraction. -->
+            </p>
+
+			  <p style="font-size: 16px;">
+               XYZFlow was accepted at ICML 2026.            <!-- While visual inputs have played a more important part, I believe that the two modalities are equally important that work at different levels of abstraction. -->
             </p>
 
 
@@ -440,7 +444,7 @@
             <br>
             The pursuit of high-fidelity image generation faces a fundamental trade-off between sampling speed and output quality. While diffusion models excel in quality, their iterative nature incurs high computational costs. Current efficient methods primarily focus on distilling pre-trained models into few-step samplers; however, this distillation process is challenging and heavily reliant on teacher model quality. In this paper, we introduce \textbf{\XYZFlow}, a novel framework that rethinks this paradigm through multidimensional scaling of flow matching. Unlike MeanFlow's single-step deterministic mapping, our approach intensively scales the expressive power of generative models by enhancing the uniqueness and learnability of probability paths through structured, multidimensional conditioning. Theoretically, we frame autoregressive modeling as an implicit flow straightening mechanism, where expanding contextual constraints reduce trajectory ambiguity. XYZFlow implements this via two orthogonal scaling dimensions: (1) \textit{Temporal scaling} through non-Markovian conditioning on the full denoising history, and (2) \textit{Spatial scaling} through next-shortcut prediction, where patches are generated sequentially using the complete denoising trajectories of preceding patches as priors. This multidimensional conditioning constructs a high-dimensional coordinate system for probability flows, enforcing mapping uniqueness. Extensive evaluations demonstrate XYZFlow achieves state-of-the-art performance, with 7.2--8.5
  speedup over teachers while maintaining competitive FID. Notably, XYZFlow-B (172M) outperforms the one-step model MeanFlow-XL/2+ (676M), demonstrating that our structured shortcut design establishes a more parameter-efficient scaling dimension and achieves superior quality-latency trade-offs compared to simply enlarging models or compressing sampling steps.<br><br>
-            <em style="font-size: 16px;"> Tech Report </em>
+            <em style="font-size: 16px;"> ICML 2026 </em>
           </td>
 		</tr>
 
